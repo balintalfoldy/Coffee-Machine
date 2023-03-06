@@ -17,6 +17,10 @@ class CoffeeMachine():
         self.water_tank = 1000
         self.counter = 0
 
+    def print_help(self):
+        print("To brew coffee use the brew command and "
+              "set the recipe you want to drink.")
+
     def brew(self, recipe: str):
         """Brew coffee.
 
