@@ -10,12 +10,19 @@ class CoffeeMachine():
         'espresso': {'coffee': 10,
                      'water': 60},
         'americano': {'coffee': 10,
-                      'water': 240}}
+                      'water': 240},
+        'lungo': {'coffee': 20,
+                  'water': 150}
+                  }
 
     def __init__(self):
         self.coffee_tank = 100
         self.water_tank = 1000
         self.counter = 0
+
+    def print_help(self):
+        print("To brew coffee use the brew command and "
+              "set the recipe you want to drink.")
 
     def brew(self, recipe: str):
         """Brew coffee.
@@ -54,3 +61,7 @@ class CoffeeMachine():
         if self.water_tank < coffee.get('water'):
             print('refilling water ...')
             self.water_tank = 1000
+    
+    @property
+    def recipies(self):
+        return self.RECIPE

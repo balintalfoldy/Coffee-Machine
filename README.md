@@ -1,4 +1,3 @@
 # README
 
-Some text...
-Some new test, ready to publish to production
+This a a Coffee Maker machine.
