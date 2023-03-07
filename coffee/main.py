@@ -1,5 +1,6 @@
 from typing import Dict
 import numpy as np
+import time
 
 test_arr = np.array([1,2,3])
 
@@ -10,12 +11,21 @@ class CoffeeMachine():
         'espresso': {'coffee': 10,
                      'water': 60},
         'americano': {'coffee': 10,
-                      'water': 240}}
+                      'water': 240},
+        'lungo': {'coffee': 20,
+                  'water': 150},
+        'ristretto': {'coffee': 10,
+                  'water': 40}
+                  }
 
     def __init__(self):
         self.coffee_tank = 100
         self.water_tank = 1000
         self.counter = 0
+
+    def print_help(self):
+        print("To brew coffee use the brew command and "
+              "set the recipe you want to drink.")
 
     def brew(self, recipe: str):
         """Brew coffee.
@@ -41,6 +51,13 @@ class CoffeeMachine():
         print('Executing maintanence...')
         self.counter = 0
 
+    def restart(self):
+        """
+        Restart machine.
+        """
+        print('Restarting...')
+        time.sleep(5)
+
     def _check_before(self, coffee: Dict):
         """Check machine status.
 
@@ -54,3 +71,7 @@ class CoffeeMachine():
         if self.water_tank < coffee.get('water'):
             print('refilling water ...')
             self.water_tank = 1000
+    
+    @property
+    def recipies(self):
+        return self.RECIPE
